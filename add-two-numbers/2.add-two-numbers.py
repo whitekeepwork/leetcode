@@ -1,7 +1,7 @@
 #
 # @lc app=leetcode id=2 lang=python3
 #
-# [2] Add Two Numbers with nomral while loop
+# [2] Add Two Numbers with nomral recursive
 #
 # Definition for singly-linked list.
 # class ListNode:
@@ -10,28 +10,23 @@
 #         self.next = None
 
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
-        #initial the head
-        head = ListNode(0)
-        pre = head
-        carry  = 0 
-        while l1 != None or l2 != None or carry != 0:
-            sum = 0
-            if l1 != None:
-                sum += l1.val
-            if l2 != None:
-                sum += l2.val
-            sum += carry
-            val = sum % 10
-            carry = sum // 10
-            pre.next = ListNode(val)
-            pre = pre.next
-            if l1 != None:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode carry = 9) -> ListNode:
+        sum = l1.val + l2.val+ carry
+        carry = sum // 10
+        dit = listNode(sum % 10)
+
+        if (l1.next != None or l2.next != None or c != 0):
+            if l1.next != None:
                 l1 = l1.next
-            if l2 != None:
+            if l2.next != None:
                 l2 = l2.next
-  
-        return head.next
+        dit.next = self.addTwoNumbers(l1,l2,carry)        
+        
+        #end case
+        return dit
+        
+        
+    
 
 
 
