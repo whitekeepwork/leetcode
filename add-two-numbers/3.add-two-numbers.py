@@ -21,8 +21,7 @@ class Solution:
             if l2.next == None:
                 l2.next = ListNode(0)
             dit.next = self.addTwoNumbers(l1.next,l2.next,carry)        
-        
-        #end case
+        #base case is l1l2.next - none and carry = 0
         return dit
         
         
