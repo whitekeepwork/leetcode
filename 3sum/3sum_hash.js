@@ -24,9 +24,10 @@ var threeSum = function(nums) {
   }
   //check difference
   for (let i = 0; i < nums.length; i++) {
-    //avoid sortted element has duplicate nums[i]
+    //avoid sortted element has duplicate nums[i] (exmaple [-1,-1,0,1])
     if (i != 0 && nums[i] == nums[i - 1]) continue;
     for (let j = i + 1; j < nums.length; j++) {
+      //avoid when next element is same (example [-2,-1,-1,0,1,3])
       if (j != i + 1 && nums[j] == nums[j - 1]) continue;
       if (
         map.has(0 - nums[i] - nums[j]) &&
